@@ -1,31 +1,3 @@
-<!-- <template>
-  <div>
-    
-    <input v-model="text" placeholder="輸入數字" />
-    <DataMatrixGenerator :text="text" />
-  </div>
-</template>
-
-<script setup>
-import { ref } from 'vue'
-import DataMatrixGenerator from '../components/DataMatrixGenerator.vue'
-
-const text = ref('')
-
-
-</script>
-
-<style scoped>
-button {
-  margin-bottom: 10px;
-}
-input {
-  margin-bottom: 10px;
-  width: 100%;
-  max-width: 600px;
-}
-</style> -->
-
 <template>
   <div class="app-container">
     <input v-model="text" placeholder="輸入數字" />

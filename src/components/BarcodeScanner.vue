@@ -9,6 +9,7 @@ import { toast } from 'vue3-toastify'; // 引用
 import 'vue3-toastify/dist/index.css'; // 官方
 
 const html5QrCode = ref(null)
+const isProcessing = ref(false) 
 
 onMounted(() => {
   html5QrCode.value = useHtml5QrCode('barcode-reader')
@@ -22,7 +23,10 @@ onUnmounted(() => {
 })
 
 const qrCodeSuccessCallback = (decodedText) => {
-  notify(decodedText)
+  if (!isProcessing.value) {
+    isProcessing.value = true
+    notify(decodedText)
+  }
 }
 
 const qrCodeErrorCallback = (error) => {
@@ -36,10 +40,7 @@ const notify = (decodedText) => {
   } else {
     toast.error(`取消造訪景點${decodedText}`)
   }
-
-  // toast(`扫描成功：${decodedText}`, {
-  //   autoClose: 2500,
-  // }); // ToastOptions
+  isProcessing.value = false // 重置标志
 }
 </script>
 
