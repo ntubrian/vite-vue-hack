@@ -1,5 +1,7 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
+import DataMetrixScanner from './components/DataMatrixScanner.vue' // 新增
+
 </script>
 
 <template>
@@ -12,6 +14,7 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
+  <DataMetrixScanner />
 </template>
 
 <style scoped>
