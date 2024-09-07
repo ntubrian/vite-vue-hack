@@ -1,12 +1,15 @@
 <template>
   <div class="component-data-matrix-generator">
     <canvas id="barcode-canvas" ref="canvas"></canvas>
+    <BarcodeGeneratorPlugin :text="text" />
   </div>
 </template>
 
 <script setup>
 import { ref, watch } from 'vue'
 import bwipjs from 'bwip-js'
+
+
 
 const props = defineProps({
   text: {
@@ -27,9 +30,11 @@ const generateBarcode = (text) => {
   bwipjs.toCanvas(canvas.value, {
     bcid: 'datamatrix',       // Barcode type
     text: text,               // Text to encode
-    scale: 10,                 // 3x scaling factor
-    // height: 3,                // Bar height, in millimeters
-    includetext: true,        // Show human-readable text
+    width: 100,
+    height: 100,
+    // scale: 1,                 // 3x scaling factor
+    // height: ,                // Bar height, in millimeters
+    // includetext: true,        // Show human-readable text
     textxalign: 'center',     // Always good to set this
     backgroundcolor: 'FFFFFF' // Set background color to white
   }, (err) => {
@@ -37,12 +42,14 @@ const generateBarcode = (text) => {
       console.error(err)
       alert('生成条码失败')
     }
-  })
+  }
+)
 }
 </script>
 
 <style scoped>
 .component-data-matrix-generator {
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;

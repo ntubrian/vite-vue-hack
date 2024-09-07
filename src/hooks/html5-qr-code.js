@@ -4,14 +4,16 @@ export const useHtml5QrCode = (domId) => {
   const html5QrCode = new Html5Qrcode(domId)
 
   const start = (qrCodeSuccessCallback) => {
-    const brConfig = { fps: 10, qrbox: { width: 300, height: 150 } }
-    
+    const brConfig = { fps: 30, qrbox: { width: 300, height: 300 } } // 调整 qrbox 高度
+
     html5QrCode.start(
       { facingMode: 'environment' },
       brConfig,
       qrCodeSuccessCallback,
       qrCodeErrorCallback
-    )
+    ).catch((err) => {
+      console.error('Failed to start QR code scanner:', err)
+    })
   }
 
   const handleStop = () => {
@@ -37,4 +39,4 @@ export const useHtml5QrCode = (domId) => {
     start,
     handleStop
   }
-} 
+}
