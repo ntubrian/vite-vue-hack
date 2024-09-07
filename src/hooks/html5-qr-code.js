@@ -37,4 +37,4 @@ export const useHtml5QrCode = (domId) => {
     start,
     handleStop
   }
-}
+} 

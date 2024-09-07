@@ -102,6 +102,9 @@ const parseDataMatrix = (data) => {
 
 onMounted(() => {
   video.value = document.getElementById('data-matrix-video')
+  video.value.width = 400 // 设置默认宽度
+  video.value.height = 400 // 设置默认高度
+  video.value.style['object-fit'] = 'cover'
 })
 </script>
 
@@ -128,9 +131,9 @@ onMounted(() => {
       <!-- 添加更多字段显示 -->
     </div>
     <video 
-      id="data-matrix-video" 
-      style="width: 100%; max-width: 500px; display: block; margin-top: 20px;"
-      :style="{ display: isScanning ? 'block' : 'none' }"
+    id="data-matrix-video" 
+  style="width: 400px; height: 400px; object-fit: cover !important; display: block; margin-top: 20px;"
+  :style="{ display: isScanning ? 'block' : 'none' }"
     ></video>
   </div>
 </template>

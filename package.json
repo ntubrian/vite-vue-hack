@@ -8,9 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bwip-js": "^4.5.1",
     "html5-qrcode": "^2.3.8",
     "vite-plugin-pwa": "^0.20.5",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "^4.4.3"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
