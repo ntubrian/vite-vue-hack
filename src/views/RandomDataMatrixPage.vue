@@ -1,6 +1,6 @@
-<template>
+<!-- <template>
   <div>
-    <!-- <button @click="generateRandomText">生成随机 DataMatrix</button> -->
+    
     <input v-model="text" placeholder="輸入數字" />
     <DataMatrixGenerator :text="text" />
   </div>
@@ -12,10 +12,7 @@ import DataMatrixGenerator from '../components/DataMatrixGenerator.vue'
 
 const text = ref('')
 
-const generateRandomText = () => {
-  const randomText = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
-  text.value = randomText.substring(0, 300) // 确保长度在 1 到 300 之间
-}
+
 </script>
 
 <style scoped>
@@ -26,5 +23,41 @@ input {
   margin-bottom: 10px;
   width: 100%;
   max-width: 600px;
+}
+</style> -->
+
+<template>
+  <div class="app-container">
+    <input v-model="text" placeholder="輸入數字" />
+    <DataMatrixGenerator :text="text" />
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import DataMatrixGenerator from '../components/DataMatrixGenerator.vue'
+
+const text = ref('12345')  // 預設一個數字
+</script>
+
+<style scoped>
+.app-container {
+  background-color: #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  padding-top: 20px;
+}
+input {
+  margin-bottom: 20px;
+  width: 90%;
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
 }
 </style>

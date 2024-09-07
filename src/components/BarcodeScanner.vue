@@ -30,9 +30,16 @@ const qrCodeErrorCallback = (error) => {
 }
 
 const notify = (decodedText) => {
-  toast(`扫描成功：${decodedText}`, {
-    autoClose: 2500,
-  }); // ToastOptions
+  const confirm = window.confirm(`確認造訪景點${decodedText}`)
+  if (confirm) {
+    toast.success(`造訪景點${decodedText}`)
+  } else {
+    toast.error(`取消造訪景點${decodedText}`)
+  }
+
+  // toast(`扫描成功：${decodedText}`, {
+  //   autoClose: 2500,
+  // }); // ToastOptions
 }
 </script>
 
