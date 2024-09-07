@@ -1,6 +1,7 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import DataMetrixScanner from './components/DataMatrixScanner.vue' // 新增
+import BarcodeScanner from './components/BarcodeScanner.vue'
 
 </script>
 
@@ -13,8 +14,7 @@ import DataMetrixScanner from './components/DataMatrixScanner.vue' // 新增
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
-  <DataMetrixScanner />
+  <BarcodeScanner />
 </template>
 
 <style scoped>
