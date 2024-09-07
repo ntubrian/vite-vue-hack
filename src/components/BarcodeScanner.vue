@@ -21,6 +21,7 @@ onUnmounted(() => {
 
 const qrCodeSuccessCallback = (decodedText) => {
   console.log(`扫描成功：${decodedText}`)
+  alert(decodedText)
 }
 </script>
 
